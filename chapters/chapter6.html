@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 6 章：JavaScript 基本互動 - Vibe Coding 入門</title>
+  <meta name="description" content="讓網頁活起來！學習變數、函式與事件，製作會動的互動效果。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 6 章</div>
+      <h1>JavaScript 基本互動</h1>
+      <p class="chapter-intro">
+        HTML 是骨架，CSS 是外觀，而 JavaScript 是讓網頁有「靈魂」的技術。
+        這章你會學到如何讓網頁對使用者的點擊、輸入做出反應，做出真正有互動感的功能。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>如何在 HTML 中引入 JavaScript</li>
+            <li>變數（var / let / const）</li>
+            <li>資料型別：字串、數字、布林值</li>
+            <li>函式（function）的定義與呼叫</li>
+            <li>DOM 操作：選取元素、修改內容</li>
+            <li>事件監聽（click、input 等）</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>如何引入 JavaScript</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- 推薦：把 script 放在 &lt;/body&gt; 前面 --&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-cmt">&lt;!-- 頁面內容 --&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 外部 JS 檔案 --&gt;</span>
+  <span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"script.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 或是直接在 HTML 裡寫 --&gt;</span>
+<span class="hl-tag">&lt;script&gt;</span>
+  console.log('Hello from JavaScript!');
+<span class="hl-tag">&lt;/script&gt;</span></code></pre>
+        </div>
+
+        <h3>變數</h3>
+        <p>變數就像是一個「命名的盒子」，用來儲存資料。</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">// let：可以重新賦值的變數（推薦）</span>
+<span class="hl-kw">let</span> name = <span class="hl-str">'小明'</span>;
+<span class="hl-kw">let</span> age = <span class="hl-num">20</span>;
+
+<span class="hl-cmt">// const：不能重新賦值的常數</span>
+<span class="hl-kw">const</span> PI = <span class="hl-num">3.14159</span>;
+<span class="hl-kw">const</span> siteName = <span class="hl-str">'Vibe Coding'</span>;
+
+<span class="hl-cmt">// 基本資料型別</span>
+<span class="hl-kw">let</span> greeting = <span class="hl-str">'你好'</span>;        <span class="hl-cmt">// 字串 (string)</span>
+<span class="hl-kw">let</span> count = <span class="hl-num">42</span>;              <span class="hl-cmt">// 數字 (number)</span>
+<span class="hl-kw">let</span> isLearning = <span class="hl-kw">true</span>;       <span class="hl-cmt">// 布林值 (boolean)</span>
+
+<span class="hl-cmt">// 在 console 輸出（按 F12 打開瀏覽器開發工具查看）</span>
+console.<span class="hl-fn">log</span>(name);
+console.<span class="hl-fn">log</span>(<span class="hl-str">'我叫'</span> + name + <span class="hl-str">'，今年'</span> + age + <span class="hl-str">'歲'</span>);</code></pre>
+        </div>
+
+        <h3>函式（function）</h3>
+        <p>函式是「可以重複使用的一段程式碼」。定義一次，想用的時候隨時呼叫。</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">// 定義函式</span>
+<span class="hl-kw">function</span> <span class="hl-fn">sayHello</span>(name) {
+  <span class="hl-fn">alert</span>(<span class="hl-str">'你好，'</span> + name + <span class="hl-str">'！'</span>);
+}
+
+<span class="hl-cmt">// 呼叫函式</span>
+<span class="hl-fn">sayHello</span>(<span class="hl-str">'小明'</span>);
+
+<span class="hl-cmt">// 有回傳值的函式</span>
+<span class="hl-kw">function</span> <span class="hl-fn">add</span>(a, b) {
+  <span class="hl-kw">return</span> a + b;
+}
+
+<span class="hl-kw">let</span> result = <span class="hl-fn">add</span>(<span class="hl-num">3</span>, <span class="hl-num">5</span>);
+console.<span class="hl-fn">log</span>(result); <span class="hl-cmt">// 輸出 8</span></code></pre>
+        </div>
+
+        <h3>DOM 操作：選取與修改元素</h3>
+        <p>
+          DOM（Document Object Model）是瀏覽器把 HTML 轉成的「物件樹」。
+          用 JavaScript 操作 DOM，就能動態改變網頁的內容和樣式。
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">// 選取元素</span>
+<span class="hl-kw">const</span> title = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'main-title'</span>);
+<span class="hl-kw">const</span> btn = document.<span class="hl-fn">querySelector</span>(<span class="hl-str">'.my-button'</span>);
+<span class="hl-kw">const</span> items = document.<span class="hl-fn">querySelectorAll</span>(<span class="hl-str">'li'</span>);
+
+<span class="hl-cmt">// 修改文字內容</span>
+title.textContent = <span class="hl-str">'新的標題'</span>;
+
+<span class="hl-cmt">// 修改 HTML 內容</span>
+title.innerHTML = <span class="hl-str">'&lt;span style="color:red"&gt;紅色標題&lt;/span&gt;'</span>;
+
+<span class="hl-cmt">// 修改樣式</span>
+title.style.color = <span class="hl-str">'blue'</span>;
+title.style.fontSize = <span class="hl-str">'2rem'</span>;
+
+<span class="hl-cmt">// 新增 / 移除 CSS class</span>
+btn.classList.<span class="hl-fn">add</span>(<span class="hl-str">'active'</span>);
+btn.classList.<span class="hl-fn">remove</span>(<span class="hl-str">'active'</span>);
+btn.classList.<span class="hl-fn">toggle</span>(<span class="hl-str">'active'</span>); <span class="hl-cmt">// 有就移除，沒有就加上</span></code></pre>
+        </div>
+
+        <h3>事件監聽</h3>
+        <p>「事件」就是使用者做的動作，例如點擊、移動滑鼠、輸入文字。</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-kw">const</span> btn = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'myBtn'</span>);
+
+<span class="hl-cmt">// 點擊事件</span>
+btn.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+  <span class="hl-fn">alert</span>(<span class="hl-str">'你點擊了按鈕！'</span>);
+});
+
+<span class="hl-cmt">// 輸入事件（用在 input 欄位）</span>
+<span class="hl-kw">const</span> input = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'nameInput'</span>);
+input.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'input'</span>, <span class="hl-kw">function</span>() {
+  <span class="hl-kw">const</span> display = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'display'</span>);
+  display.textContent = <span class="hl-str">'你輸入了：'</span> + input.value;
+});</code></pre>
+        </div>
+      </div>
+
+      <!-- 完整互動範例 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> 完整範例：計數器</h2>
+        <p>把以下程式碼存成 HTML 檔案，在瀏覽器打開就能看到可以點擊的計數器：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML + JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"zh-Hant"</span><span class="hl-tag">&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span><span class="hl-tag">&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>計數器<span class="hl-tag">&lt;/title&gt;</span>
+  <span class="hl-tag">&lt;style&gt;</span>
+    body { font-family: sans-serif; text-align: center; padding: 40px; }
+    #count { font-size: 4rem; font-weight: bold; color: #4f46e5; }
+    button { font-size: 1.2rem; padding: 10px 24px; margin: 8px;
+             border: none; border-radius: 6px; cursor: pointer; }
+    #inc { background: #4f46e5; color: white; }
+    #dec { background: #e2e8f0; }
+    #reset { background: #fee2e2; color: #dc2626; }
+  <span class="hl-tag">&lt;/style&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-tag">&lt;h1&gt;</span>計數器<span class="hl-tag">&lt;/h1&gt;</span>
+  <span class="hl-tag">&lt;div</span> <span class="hl-attr">id</span>=<span class="hl-val">"count"</span><span class="hl-tag">&gt;</span>0<span class="hl-tag">&lt;/div&gt;</span>
+  <span class="hl-tag">&lt;br&gt;</span>
+  <span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"dec"</span><span class="hl-tag">&gt;</span>－<span class="hl-tag">&lt;/button&gt;</span>
+  <span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"inc"</span><span class="hl-tag">&gt;</span>＋<span class="hl-tag">&lt;/button&gt;</span>
+  <span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"reset"</span><span class="hl-tag">&gt;</span>重置<span class="hl-tag">&lt;/button&gt;</span>
+
+  <span class="hl-tag">&lt;script&gt;</span>
+    <span class="hl-kw">let</span> count = <span class="hl-num">0</span>;
+    <span class="hl-kw">const</span> display = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'count'</span>);
+
+    document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'inc'</span>).<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+      count++;
+      display.textContent = count;
+    });
+
+    document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'dec'</span>).<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+      count--;
+      display.textContent = count;
+    });
+
+    document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'reset'</span>).<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+      count = <span class="hl-num">0</span>;
+      display.textContent = count;
+    });
+  <span class="hl-tag">&lt;/script&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+<span class="hl-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>getElementById 找不到元素</h4>
+              <p>確認 HTML 裡的 id 和 JavaScript 裡的 id 拼字完全相同，包含大小寫。id 是大小寫敏感的！</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>script 標籤放在 head 裡導致抓不到元素</h4>
+              <p>如果 script 在 head 裡，HTML 還沒載入完，document.getElementById 就會回傳 null。把 script 放在 body 結尾前可以解決這個問題。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>= 和 == 搞混</h4>
+              <p><code>=</code> 是「賦值」（把值放進變數），<code>==</code> 是「比較」（兩個值相不相等）。在 if 判斷式裡要用 <code>===</code>（嚴格相等）。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>複製上方的計數器範例，修改讓計數器不能低於 0（加入 if 判斷，當 count 已經是 0 時不執行減少）。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>在你的自我介紹頁面加一個「切換深色模式」的按鈕，點擊後讓背景變成深色、文字變成白色。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 3</div>
+            <p>建立一個簡單的輸入框，使用者輸入名字後，底下即時顯示「你好，[名字]！」的問候語。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>你的網頁現在會動了！下一章我們要學最進階的技巧：如何精準地讓 AI 幫你修改和優化網頁。</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter5.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← CSS 基本排版</span>
+        </a>
+        <a href="chapter7.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">用 AI 改網頁的方法 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

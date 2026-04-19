@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 2 章：為什麼要學 HTML / CSS / JS？ - Vibe Coding 入門</title>
+  <meta name="description" content="了解 HTML、CSS、JavaScript 三種技術各自的角色，以及它們為什麼是網頁開發的基本功。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 2 章</div>
+      <h1>為什麼要學 HTML / CSS / JavaScript？</h1>
+      <p class="chapter-intro">
+        很多人想做網站，卻不知道從哪裡開始。其實所有你在網路上看到的網頁，不管是 Google、YouTube 還是部落格，
+        骨子裡都是由 HTML、CSS 和 JavaScript 三種技術組成的。這章我們來搞懂它們各自在做什麼。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>HTML、CSS、JavaScript 各自的職責是什麼</li>
+            <li>三者之間的關係與分工</li>
+            <li>為什麼這三個技術是網頁開發的基礎</li>
+            <li>學會這三個技術之後能做什麼</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>用「蓋房子」來比喻</h3>
+        <p>
+          要理解這三種技術，用「蓋房子」來比喻最清楚：
+        </p>
+        <ul>
+          <li><strong>HTML</strong> = 建築的結構（牆壁、地板、門窗的骨架）</li>
+          <li><strong>CSS</strong> = 裝潢和油漆（顏色、擺設、美觀的外觀）</li>
+          <li><strong>JavaScript</strong> = 電力與水管（讓燈會開關、水龍頭會出水的功能）</li>
+        </ul>
+        <p>三個缺一不可，但可以分開學，一個一個來。</p>
+
+        <h3>HTML 是什麼？</h3>
+        <p>
+          HTML 全名是 <strong>HyperText Markup Language（超文字標記語言）</strong>。
+          它用「標籤（tag）」來告訴瀏覽器：「這裡是一個標題」、「這裡是一段文字」、「這裡放一張圖片」。
+        </p>
+        <p>
+          你可以把 HTML 想成「網頁的大綱」，它決定了頁面上有什麼內容，但還不管它長什麼樣子。
+        </p>
+
+        <h3>CSS 是什麼？</h3>
+        <p>
+          CSS 全名是 <strong>Cascading Style Sheets（階層樣式表）</strong>。
+          它負責讓網頁變漂亮——設定文字顏色、背景圖片、字體大小、版面配置等等。
+        </p>
+        <p>
+          同一個 HTML 結構，套上不同的 CSS，可以呈現完全不同的外觀。
+          這就是為什麼很多公司會定期「改版」網站，其實只是換了 CSS。
+        </p>
+
+        <h3>JavaScript 是什麼？</h3>
+        <p>
+          JavaScript（常縮寫為 JS）是一種<strong>程式語言</strong>，讓網頁可以「動起來」並且對使用者的操作做出反應。
+          例如：點擊按鈕顯示訊息、表單驗證、動態更新內容，都是 JavaScript 在做的事。
+        </p>
+
+        <div class="callout info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <h4>小提示</h4>
+            <p>JavaScript 跟 Java 是完全不同的語言！雖然名字很像，但兩者幾乎沒有關係。初學者常常搞混，別被名字騙了。</p>
+          </div>
+        </div>
+
+        <h3>為什麼要學這三個，而不是直接用框架？</h3>
+        <p>
+          現在有很多工具（像 React、Vue）可以更快速地建立網頁，但它們都是建立在 HTML、CSS、JS 的基礎上。
+          如果連基礎都沒有，用框架只會更混亂。
+        </p>
+        <p>
+          學好基礎的好處是：<strong>任何網頁問題你都能看懂，AI 給你的程式碼你也能理解</strong>。
+          這才是 Vibe Coding 能真正發揮效果的前提。
+        </p>
+      </div>
+
+      <!-- 範例 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> 三者合作的範例</h2>
+        <p>下面是同一個按鈕，分別用 HTML 建結構、CSS 加樣式、JS 加互動：</p>
+
+        <p><strong>HTML（結構）</strong></p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"myBtn"</span><span class="hl-tag">&gt;</span>點我看看<span class="hl-tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <p><strong>CSS（樣式）</strong></p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">#myBtn</span> {
+  <span class="hl-attr">background-color</span>: <span class="hl-val">#4f46e5</span>;
+  <span class="hl-attr">color</span>: <span class="hl-val">white</span>;
+  <span class="hl-attr">padding</span>: <span class="hl-val">10px 20px</span>;
+  <span class="hl-attr">border</span>: <span class="hl-val">none</span>;
+  <span class="hl-attr">border-radius</span>: <span class="hl-val">6px</span>;
+  <span class="hl-attr">cursor</span>: <span class="hl-val">pointer</span>;
+}</code></pre>
+        </div>
+
+        <p><strong>JavaScript（互動）</strong></p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-kw">document</span>.<span class="hl-fn">getElementById</span>(<span class="hl-str">'myBtn'</span>).<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+  <span class="hl-fn">alert</span>(<span class="hl-str">'你好，歡迎學習網頁開發！'</span>);
+});</code></pre>
+        </div>
+
+        <p>三段程式碼合起來，就是一個有樣式、有互動的按鈕。這就是三者分工合作的方式。</p>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>想跳過 HTML/CSS 直接學 JavaScript</h4>
+              <p>JavaScript 需要操作 HTML 元素，沒有 HTML 基礎很容易卡關。建議照順序學。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>把 CSS 和 HTML 混著寫</h4>
+              <p>初學者常把樣式直接寫在 HTML 標籤裡（inline style），雖然可以運作，但之後很難維護。養成分開寫的好習慣。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>搞混 JavaScript 和 Java</h4>
+              <p>這兩個完全不同的語言！JavaScript 是網頁技術，Java 是另一種程式語言。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>開啟任何一個你常用的網站（例如 YouTube），按右鍵選「檢視原始碼」，試著找出幾個 HTML 標籤（例如 <code>&lt;h1&gt;</code>、<code>&lt;p&gt;</code>、<code>&lt;img&gt;</code>）。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>用你自己的話，向 AI 問：「HTML、CSS、JavaScript 分別是做什麼用的？請用房子來比喻解釋。」看看 AI 怎麼說。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>你現在知道 HTML、CSS、JavaScript 分別負責什麼了。下一章，我們就要動手寫你的第一個網頁！</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter1.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← 什麼是 Vibe Coding？</span>
+        </a>
+        <a href="chapter3.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">第一個網頁 Hello World →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

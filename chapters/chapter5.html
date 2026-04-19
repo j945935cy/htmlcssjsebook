@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 5 章：CSS 基本排版 - Vibe Coding 入門</title>
+  <meta name="description" content="學會用 CSS 美化網頁，掌握顏色、字型、間距與 Flexbox 基礎排版。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 5 章</div>
+      <h1>CSS 基本排版</h1>
+      <p class="chapter-intro">
+        光靠 HTML，網頁看起來就是一堆黑白文字。CSS 就是讓網頁「有設計感」的關鍵。
+        這章我們要學 CSS 的基本語法、常用屬性，以及最重要的 Flexbox 排版方式。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>CSS 的三種引入方式</li>
+            <li>選擇器（selector）的使用</li>
+            <li>顏色、字型、字體大小</li>
+            <li>盒子模型（Box Model）</li>
+            <li>Flexbox 基礎排版</li>
+            <li>響應式設計（RWD）入門</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>CSS 的三種引入方式</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML/CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- 方式一：外部 CSS 檔案（推薦！）--&gt;</span>
+<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-val">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-val">"style.css"</span><span class="hl-tag">&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 方式二：&lt;style&gt; 標籤寫在 &lt;head&gt; 裡 --&gt;</span>
+<span class="hl-tag">&lt;style&gt;</span>
+  body { background-color: #f0f0f0; }
+<span class="hl-tag">&lt;/style&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 方式三：行內樣式（不建議大量使用）--&gt;</span>
+<span class="hl-tag">&lt;p</span> <span class="hl-attr">style</span>=<span class="hl-val">"color: red;"</span><span class="hl-tag">&gt;</span>這段文字是紅色的<span class="hl-tag">&lt;/p&gt;</span></code></pre>
+        </div>
+
+        <h3>CSS 基本語法</h3>
+        <p>每一條 CSS 規則的結構是：<code>選擇器 { 屬性: 值; }</code></p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">/* 選 h1 標籤，字體顏色設為深藍色 */</span>
+<span class="hl-tag">h1</span> {
+  <span class="hl-attr">color</span>: <span class="hl-val">#1e3a8a</span>;
+  <span class="hl-attr">font-size</span>: <span class="hl-val">2rem</span>;
+}
+
+<span class="hl-cmt">/* 選 .card class，設定背景與圓角 */</span>
+<span class="hl-tag">.card</span> {
+  <span class="hl-attr">background-color</span>: <span class="hl-val">white</span>;
+  <span class="hl-attr">border-radius</span>: <span class="hl-val">8px</span>;
+  <span class="hl-attr">padding</span>: <span class="hl-val">20px</span>;
+}
+
+<span class="hl-cmt">/* 選 #main id */</span>
+<span class="hl-tag">#main</span> {
+  <span class="hl-attr">max-width</span>: <span class="hl-val">1200px</span>;
+  <span class="hl-attr">margin</span>: <span class="hl-val">0 auto</span>;
+}</code></pre>
+        </div>
+
+        <h3>常用顏色與字型屬性</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">body</span> {
+  <span class="hl-cmt">/* 顏色 */</span>
+  <span class="hl-attr">color</span>: <span class="hl-val">#333</span>;                <span class="hl-cmt">/* 文字顏色 */</span>
+  <span class="hl-attr">background-color</span>: <span class="hl-val">#f8f9fa</span>; <span class="hl-cmt">/* 背景顏色 */</span>
+
+  <span class="hl-cmt">/* 字型 */</span>
+  <span class="hl-attr">font-family</span>: <span class="hl-val">'Arial', sans-serif</span>;
+  <span class="hl-attr">font-size</span>: <span class="hl-val">16px</span>;
+  <span class="hl-attr">font-weight</span>: <span class="hl-val">400</span>;    <span class="hl-cmt">/* 400=正常，700=粗體 */</span>
+  <span class="hl-attr">line-height</span>: <span class="hl-val">1.6</span>;   <span class="hl-cmt">/* 行高，影響閱讀舒適度 */</span>
+  <span class="hl-attr">text-align</span>: <span class="hl-val">left</span>;   <span class="hl-cmt">/* center / right / justify */</span>
+}</code></pre>
+        </div>
+
+        <h3>Box Model（盒子模型）</h3>
+        <p>
+          每個 HTML 元素都像一個盒子，由四個部分組成：
+        </p>
+        <ul>
+          <li><strong>content</strong>：實際的內容（文字、圖片）</li>
+          <li><strong>padding</strong>：內容與邊框之間的內距</li>
+          <li><strong>border</strong>：邊框</li>
+          <li><strong>margin</strong>：元素與外部的外距</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">.box</span> {
+  <span class="hl-attr">width</span>: <span class="hl-val">200px</span>;
+  <span class="hl-attr">height</span>: <span class="hl-val">100px</span>;
+
+  <span class="hl-attr">padding</span>: <span class="hl-val">20px</span>;          <span class="hl-cmt">/* 四邊相同 */</span>
+  <span class="hl-attr">padding-top</span>: <span class="hl-val">10px</span>;     <span class="hl-cmt">/* 單獨設定上 */</span>
+
+  <span class="hl-attr">border</span>: <span class="hl-val">2px solid #ccc</span>;  <span class="hl-cmt">/* 粗細 樣式 顏色 */</span>
+
+  <span class="hl-attr">margin</span>: <span class="hl-val">10px auto</span>;     <span class="hl-cmt">/* 上下 10px，左右自動居中 */</span>
+
+  <span class="hl-cmt">/* 推薦加上這個，讓 padding 不影響總寬度 */</span>
+  <span class="hl-attr">box-sizing</span>: <span class="hl-val">border-box</span>;
+}</code></pre>
+        </div>
+
+        <h3>Flexbox 排版</h3>
+        <p>Flexbox 是現代網頁排版最常用的技術，可以輕鬆做到水平並排、置中對齊。</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">/* 在父元素加上 display: flex */</span>
+<span class="hl-tag">.container</span> {
+  <span class="hl-attr">display</span>: <span class="hl-val">flex</span>;
+  <span class="hl-attr">flex-direction</span>: <span class="hl-val">row</span>;        <span class="hl-cmt">/* 橫向排列（預設）*/</span>
+  <span class="hl-attr">justify-content</span>: <span class="hl-val">center</span>;   <span class="hl-cmt">/* 主軸對齊：center / space-between */</span>
+  <span class="hl-attr">align-items</span>: <span class="hl-val">center</span>;       <span class="hl-cmt">/* 交叉軸對齊（垂直置中）*/</span>
+  <span class="hl-attr">gap</span>: <span class="hl-val">16px</span>;                  <span class="hl-cmt">/* 子元素之間的間距 */</span>
+  <span class="hl-attr">flex-wrap</span>: <span class="hl-val">wrap</span>;            <span class="hl-cmt">/* 超出範圍自動換行 */</span>
+}
+
+<span class="hl-cmt">/* 子元素 */</span>
+<span class="hl-tag">.item</span> {
+  <span class="hl-attr">flex</span>: <span class="hl-val">1</span>; <span class="hl-cmt">/* 自動分配剩餘空間 */</span>
+}</code></pre>
+        </div>
+
+        <h3>響應式設計（RWD）入門</h3>
+        <p>用 <code>@media</code> 讓網頁在不同螢幕大小有不同的樣式：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">/* 桌機版（預設樣式） */</span>
+<span class="hl-tag">.grid</span> {
+  <span class="hl-attr">display</span>: <span class="hl-val">grid</span>;
+  <span class="hl-attr">grid-template-columns</span>: <span class="hl-val">repeat(3, 1fr)</span>;
+  <span class="hl-attr">gap</span>: <span class="hl-val">20px</span>;
+}
+
+<span class="hl-cmt">/* 手機版（螢幕寬度小於 768px 時套用）*/</span>
+<span class="hl-tag">@media</span> (max-width: 768px) {
+  <span class="hl-tag">.grid</span> {
+    <span class="hl-attr">grid-template-columns</span>: <span class="hl-val">1fr</span>; <span class="hl-cmt">/* 改成一欄 */</span>
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- 完整範例 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> 完整範例：美化後的自我介紹</h2>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">/* style.css */</span>
+* {
+  <span class="hl-attr">box-sizing</span>: <span class="hl-val">border-box</span>;
+  <span class="hl-attr">margin</span>: <span class="hl-val">0</span>;
+  <span class="hl-attr">padding</span>: <span class="hl-val">0</span>;
+}
+
+<span class="hl-tag">body</span> {
+  <span class="hl-attr">font-family</span>: <span class="hl-val">'Segoe UI', sans-serif</span>;
+  <span class="hl-attr">background</span>: <span class="hl-val">#f1f5f9</span>;
+  <span class="hl-attr">color</span>: <span class="hl-val">#1e293b</span>;
+  <span class="hl-attr">line-height</span>: <span class="hl-val">1.7</span>;
+}
+
+<span class="hl-tag">.profile</span> {
+  <span class="hl-attr">max-width</span>: <span class="hl-val">600px</span>;
+  <span class="hl-attr">margin</span>: <span class="hl-val">40px auto</span>;
+  <span class="hl-attr">background</span>: <span class="hl-val">white</span>;
+  <span class="hl-attr">border-radius</span>: <span class="hl-val">12px</span>;
+  <span class="hl-attr">padding</span>: <span class="hl-val">40px</span>;
+  <span class="hl-attr">box-shadow</span>: <span class="hl-val">0 4px 20px rgba(0,0,0,0.08)</span>;
+  <span class="hl-attr">text-align</span>: <span class="hl-val">center</span>;
+}
+
+<span class="hl-tag">.profile img</span> {
+  <span class="hl-attr">border-radius</span>: <span class="hl-val">50%</span>;
+  <span class="hl-attr">border</span>: <span class="hl-val">4px solid #4f46e5</span>;
+}
+
+<span class="hl-tag">h1</span> {
+  <span class="hl-attr">font-size</span>: <span class="hl-val">1.8rem</span>;
+  <span class="hl-attr">margin</span>: <span class="hl-val">16px 0 8px</span>;
+  <span class="hl-attr">color</span>: <span class="hl-val">#1e293b</span>;
+}
+
+<span class="hl-tag">.btn</span> {
+  <span class="hl-attr">display</span>: <span class="hl-val">inline-block</span>;
+  <span class="hl-attr">background</span>: <span class="hl-val">#4f46e5</span>;
+  <span class="hl-attr">color</span>: <span class="hl-val">white</span>;
+  <span class="hl-attr">padding</span>: <span class="hl-val">10px 24px</span>;
+  <span class="hl-attr">border-radius</span>: <span class="hl-val">6px</span>;
+  <span class="hl-attr">text-decoration</span>: <span class="hl-val">none</span>;
+  <span class="hl-attr">margin-top</span>: <span class="hl-val">16px</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>忘記加 box-sizing: border-box</h4>
+              <p>預設情況下，padding 和 border 會讓元素比你設定的 width 還要寬。加上 <code>box-sizing: border-box</code> 可以讓寬度計算更直觀。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>CSS 不生效</h4>
+              <p>最常見的原因：拼字錯誤（<code>colour</code> 而不是 <code>color</code>）、忘記分號、或 CSS 檔案路徑不正確。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>margin: auto 沒有置中</h4>
+              <p><code>margin: 0 auto</code> 要能置中，元素必須是區塊元素且有明確的 <code>width</code> 設定。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>在上一章的 HTML 檔案旁邊建立 <code>style.css</code>，在 HTML 裡用 <code>&lt;link&gt;</code> 引入，然後把網頁背景顏色改成你喜歡的顏色。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>用 Flexbox 讓你的三個興趣清單項目橫向並排顯示，並加上適當的間距。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 3</div>
+            <p>加上 <code>@media (max-width: 600px)</code> 規則，讓手機版的字體大小比桌機版小一點（例如 14px vs 16px）。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>你的網頁現在有樣式了！下一章我們要讓它「動起來」，學習 JavaScript 基本互動。</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter4.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← HTML 基本結構</span>
+        </a>
+        <a href="chapter6.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">JavaScript 基本互動 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

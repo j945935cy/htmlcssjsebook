@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 7 章：用 AI 改網頁的方法 - Vibe Coding 入門</title>
+  <meta name="description" content="學會如何精準地向 AI 提問，快速解決 Bug、加新功能、優化樣式。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 7 章</div>
+      <h1>用 AI 改網頁的方法</h1>
+      <p class="chapter-intro">
+        學會了 HTML、CSS、JavaScript 的基礎之後，你已經可以看懂 AI 給你的程式碼了。
+        這一章我們要學最實用的技能：如何高效地和 AI 合作，讓它幫你解 Bug、加功能、改樣式。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>提問的黃金公式：背景 + 目標 + 限制 + 程式碼</li>
+            <li>如何把 Bug 和錯誤訊息告訴 AI</li>
+            <li>請 AI 加功能的正確方式</li>
+            <li>請 AI 改樣式的技巧</li>
+            <li>AI 給的答案不對時怎麼辦</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>提問的黃金公式</h3>
+        <p>一個好的 AI 提問，需要包含四個要素：</p>
+
+        <div class="callout info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <h4>提問四要素</h4>
+            <ul>
+              <li><strong>背景</strong>：我是誰？在做什麼專案？</li>
+              <li><strong>目標</strong>：我想達成什麼效果？</li>
+              <li><strong>限制</strong>：有什麼條件或限制？（例如：不要用框架）</li>
+              <li><strong>程式碼</strong>：貼上你目前的程式碼，讓 AI 了解現狀</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>範例一：請 AI 解 Bug</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">提問範例</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>我在學 JavaScript，做一個計數器功能，但點擊按鈕後數字沒有更新。
+瀏覽器 console 顯示這個錯誤：
+"TypeError: Cannot set properties of null (setting 'textContent')"
+
+這是我的 HTML：
+&lt;button id="btn"&gt;加一&lt;/button&gt;
+&lt;div id="counter"&gt;0&lt;/div&gt;
+
+這是我的 JavaScript（放在 &lt;head&gt; 裡）：
+document.getElementById('btn').addEventListener('click', function() {
+  let count = document.getElementById('counter').textContent;
+  document.getElementById('counter').textContent = parseInt(count) + 1;
+});
+
+請幫我找出問題並修正，用最簡單的方式解釋。</code></pre>
+        </div>
+
+        <h3>範例二：請 AI 加新功能</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">提問範例</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>我有一個個人介紹頁面，目前只有靜態的 HTML + CSS。
+我想加一個功能：點擊「聯絡我」按鈕後，用 JavaScript 顯示一個彈出對話框，
+裡面有我的 Email 和 GitHub 連結。
+
+請用純 JavaScript（不用 jQuery 或任何框架）幫我實作。
+只需要給我新增的 JavaScript 部分就好。</code></pre>
+        </div>
+
+        <h3>範例三：請 AI 改樣式</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">提問範例</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>我有以下這個按鈕的 CSS，目前看起來很普通：
+
+.btn {
+  background: blue;
+  color: white;
+  padding: 8px 16px;
+}
+
+我想讓它：
+1. 有漸層背景（藍色到紫色）
+2. 有圓角
+3. 滑鼠移上去時顏色稍微變深
+4. 有一點點陰影
+
+請幫我改寫這個 CSS。</code></pre>
+        </div>
+
+        <h3>當 AI 的答案不對時</h3>
+        <p>AI 不是每次都對，遇到問題時這樣處理：</p>
+
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">1</span>
+            <div class="error-content">
+              <h4>告訴 AI 哪裡不對</h4>
+              <p>把你遇到的問題具體說明，例如「我按照你說的做了，但按鈕還是沒有反應，console 顯示 XXX」。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">2</span>
+            <div class="error-content">
+              <h4>請 AI 解釋程式碼</h4>
+              <p>如果看不懂 AI 給的程式碼，直接問：「這段程式碼的每一行在做什麼？請逐行解釋。」</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">3</span>
+            <div class="error-content">
+              <h4>換一種問法</h4>
+              <p>如果同一個問題問了三次都不對，試著換個角度：「有沒有其他方法可以達到 XXX 效果？」</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>提升 AI 輸出品質的小技巧</h3>
+        <ul>
+          <li>在提問最後加上：「請只修改需要改動的部分，不要改變其他程式碼」</li>
+          <li>說明你的環境：「我使用純 HTML/CSS/JS，不使用任何框架」</li>
+          <li>指定輸出格式：「請幫我把完整修改後的 CSS 部分貼出來」</li>
+          <li>讓 AI 確認：「在回答前，請先確認你理解我的需求，然後再給程式碼」</li>
+        </ul>
+
+        <h3>使用瀏覽器開發工具</h3>
+        <p>
+          在任何網頁按 <strong>F12</strong>（或 Cmd + Option + I），就能打開「開發者工具」。
+          這是找 Bug 最重要的工具：
+        </p>
+        <ul>
+          <li><strong>Elements 標籤</strong>：查看 HTML 結構和套用的 CSS</li>
+          <li><strong>Console 標籤</strong>：看 JavaScript 的錯誤訊息</li>
+          <li><strong>Network 標籤</strong>：查看圖片或資源是否載入失敗</li>
+        </ul>
+
+        <div class="callout info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <h4>把錯誤訊息貼給 AI</h4>
+            <p>遇到問題時，打開 Console，把紅色的錯誤訊息完整複製，貼給 AI。這是最快解決問題的方式。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI 提問範本庫 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> AI 提問範本庫</h2>
+        <p>收藏這些提問範本，需要時直接套用：</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">解 Bug 範本</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>我在學 [HTML/CSS/JavaScript]，遇到一個問題：
+
+【問題描述】
+[描述你遇到的問題]
+
+【錯誤訊息】
+[貼上 Console 的錯誤訊息]
+
+【目前的程式碼】
+[貼上相關程式碼]
+
+【我希望的結果】
+[描述你想要達到什麼效果]
+
+請幫我找出問題，並用白話解釋錯誤原因。</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">加功能範本</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>我有一個用純 HTML/CSS/JavaScript 做的網頁，
+我想加入 [功能名稱] 的功能。
+
+【功能需求】
+1. [需求一]
+2. [需求二]
+
+【目前的相關程式碼】
+[貼上目前的 HTML/CSS/JS]
+
+請用純 JavaScript（不使用任何框架）實作，
+並說明每個重要的部分在做什麼。</code></pre>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>沒有貼程式碼就問問題</h4>
+              <p>「我的按鈕不能用，怎麼辦？」AI 沒有看到你的程式碼，只能給很模糊的答案。一定要貼出相關程式碼。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>一次問太多問題</h4>
+              <p>「幫我修 Bug、加深色模式、改字體、加動畫」——一次問太多，AI 可能只處理一部分或混亂地全部改掉。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>盲目複製 AI 的程式碼</h4>
+              <p>不讀就貼上，下次遇到類似問題還是不會。養成習慣：貼上之前先大致看懂這段程式碼在做什麼。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>用「提問黃金公式」，向 AI 請求幫你把第 4 章的自我介紹頁面加上「回到頂端」按鈕（滾動到一定高度後出現，點擊後滾回頂端）。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>故意在你的 JavaScript 裡製造一個錯誤（例如把 getElementById 拼成 getElementbyId），打開 Console 看錯誤訊息，然後把錯誤訊息和程式碼一起給 AI，看它能不能幫你找到問題。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>你現在是懂得用 AI 的開發者了！最後一章，我們要把所有學到的東西整合起來，完成一個真正的個人介紹頁。</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter6.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← JavaScript 基本互動</span>
+        </a>
+        <a href="chapter8.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">小專案：個人介紹頁 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

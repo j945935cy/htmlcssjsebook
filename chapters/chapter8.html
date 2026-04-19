@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 8 章：小專案：個人介紹頁 - Vibe Coding 入門</title>
+  <meta name="description" content="整合前七章所學，用 HTML + CSS + JS 完成一個完整的個人介紹網頁。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 8 章 · 最終章</div>
+      <h1>小專案：個人介紹頁</h1>
+      <p class="chapter-intro">
+        終於來到最後一章！這一章我們要把前七章學到的所有技術整合起來，
+        打造一個有質感的個人介紹頁面，並部署到 GitHub Pages 讓全世界都能看到。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>專案結構規劃</li>
+            <li>完整 HTML 結構（含 nav、hero、about、skills、contact）</li>
+            <li>完整 CSS 樣式（含響應式設計）</li>
+            <li>JavaScript 互動功能（平滑滾動、深色模式、回到頂端）</li>
+            <li>部署到 GitHub Pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>專案結構</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">資料夾結構</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code>my-profile/
+├── index.html      ← 主頁面
+├── style.css       ← 所有樣式
+└── script.js       ← 互動功能</code></pre>
+        </div>
+
+        <h3>設計規劃</h3>
+        <p>我們的個人介紹頁要包含以下區塊：</p>
+        <ul>
+          <li><strong>Header / Nav</strong>：導覽列，有名字 logo 和頁面錨點連結</li>
+          <li><strong>Hero</strong>：大型主視覺區，有名字、一句話介紹和 CTA 按鈕</li>
+          <li><strong>About</strong>：詳細自我介紹</li>
+          <li><strong>Skills</strong>：技能列表（用進度條或標籤呈現）</li>
+          <li><strong>Contact</strong>：聯絡方式</li>
+          <li><strong>Footer</strong>：版權資訊</li>
+        </ul>
+      </div>
+
+      <!-- HTML 完整程式碼 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> 完整程式碼</h2>
+
+        <h3>index.html</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"zh-Hant"</span><span class="hl-tag">&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">name</span>=<span class="hl-val">"viewport"</span> <span class="hl-attr">content</span>=<span class="hl-val">"width=device-width, initial-scale=1.0"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>你的名字 - 個人介紹<span class="hl-tag">&lt;/title&gt;</span>
+  <span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-val">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-val">"style.css"</span> <span class="hl-tag">/&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 導覽列 --&gt;</span>
+  <span class="hl-tag">&lt;header</span> <span class="hl-attr">id</span>=<span class="hl-val">"navbar"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"nav-inner"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#"</span> <span class="hl-attr">class</span>=<span class="hl-val">"nav-logo"</span><span class="hl-tag">&gt;</span>你的名字<span class="hl-tag">&lt;/a&gt;</span>
+      <span class="hl-tag">&lt;nav&gt;</span>
+        <span class="hl-tag">&lt;ul</span> <span class="hl-attr">class</span>=<span class="hl-val">"nav-links"</span><span class="hl-tag">&gt;</span>
+          <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#about"</span><span class="hl-tag">&gt;</span>關於我<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#skills"</span><span class="hl-tag">&gt;</span>技能<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#contact"</span><span class="hl-tag">&gt;</span>聯絡<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="hl-tag">&lt;/ul&gt;</span>
+      <span class="hl-tag">&lt;/nav&gt;</span>
+      <span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"darkToggle"</span> <span class="hl-attr">title</span>=<span class="hl-val">"切換深色模式"</span><span class="hl-tag">&gt;</span>🌙<span class="hl-tag">&lt;/button&gt;</span>
+    <span class="hl-tag">&lt;/div&gt;</span>
+  <span class="hl-tag">&lt;/header&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- Hero --&gt;</span>
+  <span class="hl-tag">&lt;section</span> <span class="hl-attr">class</span>=<span class="hl-val">"hero"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;img</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://picsum.photos/120/120"</span>
+         <span class="hl-attr">alt</span>=<span class="hl-val">"頭像"</span> <span class="hl-attr">class</span>=<span class="hl-val">"avatar"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;h1&gt;</span>嗨，我是<span class="hl-tag">&lt;span</span> <span class="hl-attr">class</span>=<span class="hl-val">"highlight"</span><span class="hl-tag">&gt;</span>你的名字<span class="hl-tag">&lt;/span&gt;</span> 👋<span class="hl-tag">&lt;/h1&gt;</span>
+    <span class="hl-tag">&lt;p&gt;</span>一個熱愛學習的網頁開發初學者，用 AI 輔助讓學習更有效率。<span class="hl-tag">&lt;/p&gt;</span>
+    <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#about"</span> <span class="hl-attr">class</span>=<span class="hl-val">"btn-hero"</span><span class="hl-tag">&gt;</span>認識我 ↓<span class="hl-tag">&lt;/a&gt;</span>
+  <span class="hl-tag">&lt;/section&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 關於我 --&gt;</span>
+  <span class="hl-tag">&lt;section</span> <span class="hl-attr">id</span>=<span class="hl-val">"about"</span> <span class="hl-attr">class</span>=<span class="hl-val">"section"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"container"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;h2&gt;</span>關於我<span class="hl-tag">&lt;/h2&gt;</span>
+      <span class="hl-tag">&lt;p&gt;</span>我是一個對程式設計充滿熱情的初學者。透過這本 Vibe Coding 教材，
+      我學會了 HTML、CSS 和 JavaScript 的基礎，並且開始能夠用 AI 工具加速學習。<span class="hl-tag">&lt;/p&gt;</span>
+      <span class="hl-tag">&lt;p&gt;</span>我的目標是成為一名前端開發者，打造對使用者友善的網頁體驗。<span class="hl-tag">&lt;/p&gt;</span>
+    <span class="hl-tag">&lt;/div&gt;</span>
+  <span class="hl-tag">&lt;/section&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 技能 --&gt;</span>
+  <span class="hl-tag">&lt;section</span> <span class="hl-attr">id</span>=<span class="hl-val">"skills"</span> <span class="hl-attr">class</span>=<span class="hl-val">"section section-alt"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"container"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;h2&gt;</span>技能<span class="hl-tag">&lt;/h2&gt;</span>
+      <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skills-grid"</span><span class="hl-tag">&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>HTML<span class="hl-tag">&lt;/div&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>CSS<span class="hl-tag">&lt;/div&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>JavaScript<span class="hl-tag">&lt;/div&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>Vibe Coding<span class="hl-tag">&lt;/div&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>GitHub<span class="hl-tag">&lt;/div&gt;</span>
+        <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"skill-tag"</span><span class="hl-tag">&gt;</span>AI 工具<span class="hl-tag">&lt;/div&gt;</span>
+      <span class="hl-tag">&lt;/div&gt;</span>
+    <span class="hl-tag">&lt;/div&gt;</span>
+  <span class="hl-tag">&lt;/section&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 聯絡 --&gt;</span>
+  <span class="hl-tag">&lt;section</span> <span class="hl-attr">id</span>=<span class="hl-val">"contact"</span> <span class="hl-attr">class</span>=<span class="hl-val">"section"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"container"</span> <span class="hl-attr">style</span>=<span class="hl-val">"text-align:center"</span><span class="hl-tag">&gt;</span>
+      <span class="hl-tag">&lt;h2&gt;</span>聯絡我<span class="hl-tag">&lt;/h2&gt;</span>
+      <span class="hl-tag">&lt;p&gt;</span>有任何問題或合作邀請，歡迎透過以下方式聯絡：<span class="hl-tag">&lt;/p&gt;</span>
+      <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"contact-links"</span><span class="hl-tag">&gt;</span>
+        <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"mailto:your@email.com"</span> <span class="hl-attr">class</span>=<span class="hl-val">"contact-btn"</span><span class="hl-tag">&gt;</span>📧 Email<span class="hl-tag">&lt;/a&gt;</span>
+        <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"https://github.com/yourusername"</span>
+           <span class="hl-attr">target</span>=<span class="hl-val">"_blank"</span> <span class="hl-attr">rel</span>=<span class="hl-val">"noopener"</span> <span class="hl-attr">class</span>=<span class="hl-val">"contact-btn"</span><span class="hl-tag">&gt;</span>🐙 GitHub<span class="hl-tag">&lt;/a&gt;</span>
+      <span class="hl-tag">&lt;/div&gt;</span>
+    <span class="hl-tag">&lt;/div&gt;</span>
+  <span class="hl-tag">&lt;/section&gt;</span>
+
+  <span class="hl-tag">&lt;footer&gt;</span>
+    <span class="hl-tag">&lt;p&gt;</span>© 2026 你的名字. Made with ❤️ and Vibe Coding<span class="hl-tag">&lt;/p&gt;</span>
+  <span class="hl-tag">&lt;/footer&gt;</span>
+
+  <span class="hl-cmt">&lt;!-- 回到頂端按鈕 --&gt;</span>
+  <span class="hl-tag">&lt;button</span> <span class="hl-attr">id</span>=<span class="hl-val">"backToTop"</span> <span class="hl-attr">title</span>=<span class="hl-val">"回到頂端"</span><span class="hl-tag">&gt;</span>↑<span class="hl-tag">&lt;/button&gt;</span>
+
+  <span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"script.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+<span class="hl-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+
+        <h3>style.css</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">CSS</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">/* 基本重置 */</span>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+<span class="hl-tag">body</span> {
+  font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+  background: #f8fafc; color: #1e293b; line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
+}
+
+<span class="hl-cmt">/* 深色模式 */</span>
+<span class="hl-tag">body.dark</span> { background: #0f172a; color: #e2e8f0; }
+<span class="hl-tag">body.dark header</span> { background: #1e293b; border-bottom-color: #334155; }
+<span class="hl-tag">body.dark .section-alt</span> { background: #1e293b; }
+<span class="hl-tag">body.dark footer</span> { background: #020617; }
+
+<span class="hl-cmt">/* 導覽列 */</span>
+<span class="hl-tag">header</span> {
+  position: sticky; top: 0; z-index: 100;
+  background: white; border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+<span class="hl-tag">.nav-inner</span> {
+  max-width: 900px; margin: 0 auto; padding: 0 1.5rem;
+  height: 60px; display: flex; align-items: center; gap: 1rem;
+}
+<span class="hl-tag">.nav-logo</span> { font-weight: 800; color: #4f46e5; text-decoration: none; font-size: 1.1rem; flex: 1; }
+<span class="hl-tag">.nav-links</span> { list-style: none; display: flex; gap: 1.5rem; }
+<span class="hl-tag">.nav-links a</span> { color: inherit; text-decoration: none; font-size: 0.9rem; }
+<span class="hl-tag">.nav-links a:hover</span> { color: #4f46e5; }
+<span class="hl-tag">#darkToggle</span> {
+  background: none; border: 1px solid #e2e8f0; border-radius: 6px;
+  padding: 4px 8px; cursor: pointer; font-size: 1rem;
+}
+
+<span class="hl-cmt">/* Hero */</span>
+<span class="hl-tag">.hero</span> {
+  min-height: 80vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  color: white;
+}
+<span class="hl-tag">.avatar</span> {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 4px solid #818cf8; margin-bottom: 1.5rem;
+}
+<span class="hl-tag">.hero h1</span> { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 0.8rem; }
+<span class="hl-tag">.highlight</span> { color: #818cf8; }
+<span class="hl-tag">.hero p</span> { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
+<span class="hl-tag">.btn-hero</span> {
+  display: inline-block; background: #4f46e5; color: white;
+  padding: 0.7rem 1.8rem; border-radius: 8px;
+  text-decoration: none; font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+<span class="hl-tag">.btn-hero:hover</span> { background: #3730a3; transform: translateY(-2px); text-decoration: none; }
+
+<span class="hl-cmt">/* 區塊 */</span>
+<span class="hl-tag">.section</span> { padding: 4rem 1.5rem; }
+<span class="hl-tag">.section-alt</span> { background: #f1f5f9; }
+<span class="hl-tag">.container</span> { max-width: 800px; margin: 0 auto; }
+<span class="hl-tag">.section h2</span> {
+  font-size: 1.8rem; font-weight: 800; margin-bottom: 1.2rem;
+  color: #4f46e5;
+}
+<span class="hl-tag">.section p</span> { margin-bottom: 0.8rem; }
+
+<span class="hl-cmt">/* 技能標籤 */</span>
+<span class="hl-tag">.skills-grid</span> { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
+<span class="hl-tag">.skill-tag</span> {
+  background: #4f46e5; color: white; padding: 0.4rem 1rem;
+  border-radius: 999px; font-size: 0.9rem; font-weight: 600;
+}
+
+<span class="hl-cmt">/* 聯絡 */</span>
+<span class="hl-tag">.contact-links</span> { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+<span class="hl-tag">.contact-btn</span> {
+  display: inline-block; background: #4f46e5; color: white;
+  padding: 0.7rem 1.5rem; border-radius: 8px;
+  text-decoration: none; font-weight: 600;
+  transition: background 0.2s;
+}
+<span class="hl-tag">.contact-btn:hover</span> { background: #3730a3; text-decoration: none; }
+
+<span class="hl-cmt">/* Footer */</span>
+<span class="hl-tag">footer</span> {
+  background: #1e1b4b; color: rgba(255,255,255,0.6);
+  text-align: center; padding: 2rem; font-size: 0.85rem;
+}
+
+<span class="hl-cmt">/* 回到頂端 */</span>
+<span class="hl-tag">#backToTop</span> {
+  position: fixed; bottom: 2rem; right: 2rem;
+  background: #4f46e5; color: white; border: none;
+  width: 44px; height: 44px; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 4px 12px rgba(79,70,229,0.4);
+}
+<span class="hl-tag">#backToTop.show</span> { opacity: 1; transform: translateY(0); }
+
+<span class="hl-cmt">/* 響應式 */</span>
+<span class="hl-tag">@media</span> (max-width: 600px) {
+  <span class="hl-tag">.nav-links</span> { display: none; }
+  <span class="hl-tag">.hero</span> { min-height: 70vh; }
+}</code></pre>
+        </div>
+
+        <h3>script.js</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">// 深色模式切換</span>
+<span class="hl-kw">const</span> darkToggle = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'darkToggle'</span>);
+darkToggle.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+  document.body.classList.<span class="hl-fn">toggle</span>(<span class="hl-str">'dark'</span>);
+  darkToggle.textContent = document.body.classList.<span class="hl-fn">contains</span>(<span class="hl-str">'dark'</span>) ? <span class="hl-str">'☀️'</span> : <span class="hl-str">'🌙'</span>;
+});
+
+<span class="hl-cmt">// 回到頂端按鈕</span>
+<span class="hl-kw">const</span> backToTop = document.<span class="hl-fn">getElementById</span>(<span class="hl-str">'backToTop'</span>);
+window.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'scroll'</span>, <span class="hl-kw">function</span>() {
+  <span class="hl-kw">if</span> (window.scrollY &gt; <span class="hl-num">300</span>) {
+    backToTop.classList.<span class="hl-fn">add</span>(<span class="hl-str">'show'</span>);
+  } <span class="hl-kw">else</span> {
+    backToTop.classList.<span class="hl-fn">remove</span>(<span class="hl-str">'show'</span>);
+  }
+});
+backToTop.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>() {
+  window.<span class="hl-fn">scrollTo</span>({ top: <span class="hl-num">0</span>, behavior: <span class="hl-str">'smooth'</span> });
+});
+
+<span class="hl-cmt">// 平滑滾動（點擊錨點連結）</span>
+document.<span class="hl-fn">querySelectorAll</span>(<span class="hl-str">'a[href^="#"]'</span>).<span class="hl-fn">forEach</span>(<span class="hl-kw">function</span>(link) {
+  link.<span class="hl-fn">addEventListener</span>(<span class="hl-str">'click'</span>, <span class="hl-kw">function</span>(e) {
+    <span class="hl-kw">const</span> target = document.<span class="hl-fn">querySelector</span>(link.getAttribute(<span class="hl-str">'href'</span>));
+    <span class="hl-kw">if</span> (target) {
+      e.<span class="hl-fn">preventDefault</span>();
+      target.<span class="hl-fn">scrollIntoView</span>({ behavior: <span class="hl-str">'smooth'</span> });
+    }
+  });
+});</code></pre>
+        </div>
+      </div>
+
+      <!-- 部署 GitHub Pages -->
+      <div class="section-block">
+        <h2><span class="section-icon">🚀</span> 部署到 GitHub Pages</h2>
+
+        <div class="callout info">
+          <span class="callout-icon">ℹ️</span>
+          <div class="callout-body">
+            <h4>前置需求</h4>
+            <p>需要有 GitHub 帳號（免費）。前往 github.com 註冊。</p>
+          </div>
+        </div>
+
+        <h3>步驟</h3>
+        <ol>
+          <li>在 GitHub 建立新的 Repository（倉庫），取名例如 <code>my-profile</code></li>
+          <li>把你的三個檔案（index.html、style.css、script.js）上傳上去</li>
+          <li>進入 Repository 的 <strong>Settings → Pages</strong></li>
+          <li>在 Source 選擇 <strong>Deploy from a branch</strong></li>
+          <li>Branch 選 <strong>main</strong>，資料夾選 <strong>/ (root)</strong></li>
+          <li>按 Save，等待約 1~2 分鐘</li>
+          <li>你的網站會部署在 <code>https://你的帳號.github.io/my-profile/</code></li>
+        </ol>
+
+        <div class="callout success">
+          <span class="callout-icon">🎉</span>
+          <div class="callout-body">
+            <h4>完成！</h4>
+            <p>你的個人介紹頁現在可以透過網址讓任何人看到了。把這個連結加到你的 LinkedIn、名片或任何地方！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>GitHub Pages 部署後看到 404</h4>
+              <p>確認主頁面的檔案名稱是 <code>index.html</code>（全小寫），這是 GitHub Pages 的預設進入點。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>CSS 或 JS 在 GitHub Pages 上不生效</h4>
+              <p>確認檔案路徑是相對路徑（例如 <code>style.css</code> 而不是 <code>/style.css</code>），且檔案確實已上傳到 GitHub。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>專案太複雜，自己改不動</h4>
+              <p>回頭用第 7 章學的提問技巧請 AI 幫你，記得貼上完整的程式碼和描述你想要的結果。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 最終挑戰</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">挑戰 1</div>
+            <p>完成整個個人介紹頁，把所有「你的名字」、Email、GitHub 換成你自己的資料，並部署到 GitHub Pages。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">挑戰 2</div>
+            <p>用 AI 幫你在技能區加入「進度條」效果，讓每個技能顯示你的熟練程度（例如 HTML 80%、CSS 70%）。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">挑戰 3</div>
+            <p>加入一個「作品集」區塊，展示你在學習過程中完成的任何一個小專案，並附上連結。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #22c55e;">
+        <span class="callout-icon">🏆</span>
+        <div class="callout-body">
+          <h4>恭喜你完成了這本書！</h4>
+          <p>你已經從零學會了 HTML、CSS、JavaScript 的基礎，並且掌握了用 AI 輔助開發的技能。這只是開始，繼續保持好奇心，持續學習！</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter7.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← 用 AI 改網頁的方法</span>
+        </a>
+        <a href="../index.html" class="nav-btn next">
+          <span class="nav-btn-label">回到</span>
+          <span class="nav-btn-title">首頁 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 3 章：第一個網頁 Hello World - Vibe Coding 入門</title>
+  <meta name="description" content="動手建立你人生中的第一個 HTML 檔案，在瀏覽器看到自己寫的網頁！" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 3 章</div>
+      <h1>第一個網頁：Hello World</h1>
+      <p class="chapter-intro">
+        每個程式設計師學習新技術的第一步，幾乎都是在螢幕上印出「Hello World」。
+        現在輪到你了！這一章我們要從安裝工具開始，一步步建立你人生中的第一個網頁。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>安裝文字編輯器（VS Code）</li>
+            <li>建立第一個 .html 檔案</li>
+            <li>認識 HTML 文件的基本骨架</li>
+            <li>在瀏覽器中開啟並看到結果</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>步驟一：安裝 VS Code</h3>
+        <p>
+          <strong>Visual Studio Code</strong>（簡稱 VS Code）是目前最受歡迎的免費程式碼編輯器，微軟出品。
+          它有很多方便的功能，包含 AI Copilot 整合，非常適合初學者。
+        </p>
+        <ol>
+          <li>前往 <strong>code.visualstudio.com</strong> 下載</li>
+          <li>選擇你的作業系統版本（Windows / Mac / Linux）</li>
+          <li>安裝完成後打開它</li>
+        </ol>
+
+        <div class="callout info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <h4>也可以不安裝</h4>
+            <p>如果你只是想快速試試，可以直接用瀏覽器的 <strong>CodePen</strong>（codepen.io）或 <strong>JSFiddle</strong>（jsfiddle.net），不需要安裝任何東西。</p>
+          </div>
+        </div>
+
+        <h3>步驟二：建立你的第一個 HTML 檔案</h3>
+        <ol>
+          <li>在桌面或任意位置建立一個新資料夾，取名 <code>my-first-website</code></li>
+          <li>用 VS Code 開啟這個資料夾（檔案 → 開啟資料夾）</li>
+          <li>在左側資料夾面板點右鍵，選「新增檔案」</li>
+          <li>取名為 <code>index.html</code>（注意：副檔名一定要是 <code>.html</code>）</li>
+        </ol>
+
+        <h3>步驟三：輸入 HTML 骨架</h3>
+        <p>打開 <code>index.html</code>，輸入以下內容：</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"zh-Hant"</span><span class="hl-tag">&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">name</span>=<span class="hl-val">"viewport"</span> <span class="hl-attr">content</span>=<span class="hl-val">"width=device-width, initial-scale=1.0"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>我的第一個網頁<span class="hl-tag">&lt;/title&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-tag">&lt;h1&gt;</span>Hello World！<span class="hl-tag">&lt;/h1&gt;</span>
+  <span class="hl-tag">&lt;p&gt;</span>我的第一個網頁誕生了！<span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+<span class="hl-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+
+        <h3>步驟四：在瀏覽器開啟</h3>
+        <ol>
+          <li>儲存檔案（Ctrl + S 或 Cmd + S）</li>
+          <li>在檔案總管中找到 <code>index.html</code>，雙擊開啟</li>
+          <li>瀏覽器會顯示你的第一個網頁！</li>
+        </ol>
+
+        <div class="callout success">
+          <span class="callout-icon">🎉</span>
+          <div class="callout-body">
+            <h4>VS Code 小技巧</h4>
+            <p>在 VS Code 裡輸入 <code>!</code> 再按 Tab 鍵，會自動產生 HTML 骨架，不用每次手動輸入！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 骨架說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">🔍</span> 認識 HTML 骨架</h2>
+        <p>讓我們來看看剛才每一行在做什麼：</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML - 逐行說明</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- 告訴瀏覽器：這是 HTML5 文件 --&gt;</span>
+<span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 整個網頁的根元素，lang 設定語言 --&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"zh-Hant"</span><span class="hl-tag">&gt;</span>
+
+<span class="hl-cmt">&lt;!-- head：放網頁的「設定」，使用者不會直接看到 --&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-cmt">&lt;!-- 設定字元編碼，支援中文 --&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-cmt">&lt;!-- 讓手機也能正常顯示 --&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">name</span>=<span class="hl-val">"viewport"</span> <span class="hl-attr">content</span>=<span class="hl-val">"width=device-width, initial-scale=1.0"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-cmt">&lt;!-- 顯示在瀏覽器分頁上的標題 --&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>我的第一個網頁<span class="hl-tag">&lt;/title&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+
+<span class="hl-cmt">&lt;!-- body：使用者實際看到的內容都放在這裡 --&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-tag">&lt;h1&gt;</span>Hello World！<span class="hl-tag">&lt;/h1&gt;</span>  <span class="hl-cmt">&lt;!-- 最大的標題 --&gt;</span>
+  <span class="hl-tag">&lt;p&gt;</span>我的第一個網頁誕生了！<span class="hl-tag">&lt;/p&gt;</span>  <span class="hl-cmt">&lt;!-- 段落文字 --&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+
+<span class="hl-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>檔名取錯，用 .txt 而不是 .html</h4>
+              <p>存檔時要確認副檔名是 <code>.html</code>，不是 <code>.txt</code>。如果瀏覽器只顯示文字而不是網頁，很可能是這個問題。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>中文顯示亂碼</h4>
+              <p>忘了加上 <code>&lt;meta charset="UTF-8"&gt;</code>，瀏覽器就不知道要用 UTF-8 來解讀中文，造成亂碼。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>忘記關閉標籤</h4>
+              <p>大多數 HTML 標籤都需要有開始（<code>&lt;p&gt;</code>）和結束（<code>&lt;/p&gt;</code>）。忘記結束標籤會導致版面跑掉。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>把 <code>&lt;h1&gt;Hello World！&lt;/h1&gt;</code> 改成你自己的名字，存檔後重新整理瀏覽器，確認改變有生效。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>在 <code>&lt;body&gt;</code> 裡再加一行 <code>&lt;p&gt;今天是我學習程式設計的第一天！&lt;/p&gt;</code>，看看畫面會多出什麼。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 3</div>
+            <p>試著改變 <code>&lt;title&gt;</code> 裡的文字，存檔後看看瀏覽器分頁上的標題是否改變了。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>恭喜你！你已經建立了人生中第一個網頁。下一章我們要學更多 HTML 標籤，讓你的網頁內容更豐富。</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter2.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← 為什麼要學 HTML/CSS/JS</span>
+        </a>
+        <a href="chapter4.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">HTML 基本結構 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

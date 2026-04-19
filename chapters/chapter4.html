@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 4 章：HTML 基本結構 - Vibe Coding 入門</title>
+  <meta name="description" content="深入學習 HTML 標籤的使用方式，包含標題、段落、連結、圖片與清單。" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="開關選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="../index.html" class="header-logo">Vibe<span>Coding</span> 入門</a>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="chapter-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="../index.html" class="sidebar-home">← 回首頁</a>
+      <div class="sidebar-title">章節目錄</div>
+      <nav>
+        <ul>
+          <li><a href="chapter1.html"><span class="ch-num">01</span>什麼是 Vibe Coding？</a></li>
+          <li><a href="chapter2.html"><span class="ch-num">02</span>為什麼要學 HTML/CSS/JS</a></li>
+          <li><a href="chapter3.html"><span class="ch-num">03</span>第一個網頁 Hello World</a></li>
+          <li><a href="chapter4.html"><span class="ch-num">04</span>HTML 基本結構</a></li>
+          <li><a href="chapter5.html"><span class="ch-num">05</span>CSS 基本排版</a></li>
+          <li><a href="chapter6.html"><span class="ch-num">06</span>JavaScript 基本互動</a></li>
+          <li><a href="chapter7.html"><span class="ch-num">07</span>用 AI 改網頁的方法</a></li>
+          <li><a href="chapter8.html"><span class="ch-num">08</span>小專案：個人介紹頁</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="chapter-content">
+
+      <div class="chapter-tag">第 4 章</div>
+      <h1>HTML 基本結構</h1>
+      <p class="chapter-intro">
+        上一章你建立了第一個網頁，這章我們要學更多常用的 HTML 標籤。
+        掌握這些標籤，你就能建立出包含文字、連結、圖片、清單的完整網頁內容。
+      </p>
+
+      <!-- 本章重點 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📌</span> 本章重點</h2>
+        <div class="key-points">
+          <ul>
+            <li>標題標籤 h1 ~ h6 的使用</li>
+            <li>段落 p、換行 br、分隔線 hr</li>
+            <li>連結 a 與圖片 img 標籤</li>
+            <li>有序清單 ol 與無序清單 ul</li>
+            <li>div 和 span：版面分組用的容器</li>
+            <li>HTML 屬性（attribute）的概念</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 教學說明 -->
+      <div class="section-block">
+        <h2><span class="section-icon">📖</span> 教學說明</h2>
+
+        <h3>標題標籤 h1 ~ h6</h3>
+        <p>HTML 提供六個層級的標題，數字越小代表越重要、字體越大。</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;h1&gt;</span>最大的標題（每頁只建議用一個）<span class="hl-tag">&lt;/h1&gt;</span>
+<span class="hl-tag">&lt;h2&gt;</span>第二級標題<span class="hl-tag">&lt;/h2&gt;</span>
+<span class="hl-tag">&lt;h3&gt;</span>第三級標題<span class="hl-tag">&lt;/h3&gt;</span>
+<span class="hl-tag">&lt;h4&gt;</span>第四級標題<span class="hl-tag">&lt;/h4&gt;</span>
+<span class="hl-tag">&lt;h5&gt;</span>第五級標題<span class="hl-tag">&lt;/h5&gt;</span>
+<span class="hl-tag">&lt;h6&gt;</span>最小的標題<span class="hl-tag">&lt;/h6&gt;</span></code></pre>
+        </div>
+
+        <h3>段落、換行、分隔線</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- p 是段落，段落之間會自動有間距 --&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span>這是第一段文字。<span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span>這是第二段文字。<span class="hl-tag">&lt;/p&gt;</span>
+
+<span class="hl-cmt">&lt;!-- br 是換行，不需要結束標籤 --&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span>第一行<span class="hl-tag">&lt;br&gt;</span>第二行（同一段落裡換行）<span class="hl-tag">&lt;/p&gt;</span>
+
+<span class="hl-cmt">&lt;!-- hr 是水平分隔線 --&gt;</span>
+<span class="hl-tag">&lt;hr&gt;</span></code></pre>
+        </div>
+
+        <h3>文字樣式標籤</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;strong&gt;</span>粗體文字（重要）<span class="hl-tag">&lt;/strong&gt;</span>
+<span class="hl-tag">&lt;em&gt;</span>斜體文字（強調）<span class="hl-tag">&lt;/em&gt;</span>
+<span class="hl-tag">&lt;mark&gt;</span>螢光標記文字<span class="hl-tag">&lt;/mark&gt;</span>
+<span class="hl-tag">&lt;code&gt;</span>程式碼文字<span class="hl-tag">&lt;/code&gt;</span></code></pre>
+        </div>
+
+        <h3>連結 &lt;a&gt;</h3>
+        <p><code>&lt;a&gt;</code> 標籤建立超連結，<code>href</code> 屬性指定連結目的地：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- 連到外部網站，target="_blank" 在新分頁開啟 --&gt;</span>
+<span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"https://www.google.com"</span> <span class="hl-attr">target</span>=<span class="hl-val">"_blank"</span><span class="hl-tag">&gt;</span>前往 Google<span class="hl-tag">&lt;/a&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 連到同目錄的另一個 HTML 檔案 --&gt;</span>
+<span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"about.html"</span><span class="hl-tag">&gt;</span>關於我<span class="hl-tag">&lt;/a&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 連到頁面某個位置（用 id） --&gt;</span>
+<span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"#contact"</span><span class="hl-tag">&gt;</span>跳到聯絡區<span class="hl-tag">&lt;/a&gt;</span>
+...
+<span class="hl-tag">&lt;section</span> <span class="hl-attr">id</span>=<span class="hl-val">"contact"</span><span class="hl-tag">&gt;</span>...聯絡資訊...<span class="hl-tag">&lt;/section&gt;</span></code></pre>
+        </div>
+
+        <h3>圖片 &lt;img&gt;</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- src：圖片來源，alt：圖片無法顯示時的替代文字 --&gt;</span>
+<span class="hl-tag">&lt;img</span> <span class="hl-attr">src</span>=<span class="hl-val">"images/photo.jpg"</span> <span class="hl-attr">alt</span>=<span class="hl-val">"我的照片"</span> <span class="hl-tag">/&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 也可以用網路上的圖片 URL --&gt;</span>
+<span class="hl-tag">&lt;img</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://picsum.photos/400/300"</span> <span class="hl-attr">alt</span>=<span class="hl-val">"隨機圖片"</span> <span class="hl-attr">width</span>=<span class="hl-val">"400"</span> <span class="hl-tag">/&gt;</span></code></pre>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-body">
+            <h4>alt 屬性很重要</h4>
+            <p><code>alt</code> 不只是「圖片壞掉時顯示的文字」，對視障使用者的螢幕閱讀器來說，<code>alt</code> 是他們了解圖片內容的唯一方式。記得要寫有意義的描述。</p>
+          </div>
+        </div>
+
+        <h3>清單 ul / ol</h3>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- 無序清單（項目符號） --&gt;</span>
+<span class="hl-tag">&lt;ul&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>HTML<span class="hl-tag">&lt;/li&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>CSS<span class="hl-tag">&lt;/li&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>JavaScript<span class="hl-tag">&lt;/li&gt;</span>
+<span class="hl-tag">&lt;/ul&gt;</span>
+
+<span class="hl-cmt">&lt;!-- 有序清單（數字） --&gt;</span>
+<span class="hl-tag">&lt;ol&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>先學 HTML<span class="hl-tag">&lt;/li&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>再學 CSS<span class="hl-tag">&lt;/li&gt;</span>
+  <span class="hl-tag">&lt;li&gt;</span>最後學 JavaScript<span class="hl-tag">&lt;/li&gt;</span>
+<span class="hl-tag">&lt;/ol&gt;</span></code></pre>
+        </div>
+
+        <h3>div 和 span：容器標籤</h3>
+        <p>
+          <code>&lt;div&gt;</code> 是「區塊容器」，用來把一組元素包起來，方便套用樣式或分組。
+          <code>&lt;span&gt;</code> 是「行內容器」，用來對一段文字裡的某個部分特別處理。
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-cmt">&lt;!-- div：整個區塊包起來 --&gt;</span>
+<span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"card"</span><span class="hl-tag">&gt;</span>
+  <span class="hl-tag">&lt;h2&gt;</span>卡片標題<span class="hl-tag">&lt;/h2&gt;</span>
+  <span class="hl-tag">&lt;p&gt;</span>卡片內容<span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;/div&gt;</span>
+
+<span class="hl-cmt">&lt;!-- span：只針對某幾個字 --&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span>今天天氣<span class="hl-tag">&lt;span</span> <span class="hl-attr">style</span>=<span class="hl-val">"color: red;"</span><span class="hl-tag">&gt;</span>非常熱<span class="hl-tag">&lt;/span&gt;</span>，記得喝水。<span class="hl-tag">&lt;/p&gt;</span></code></pre>
+        </div>
+      </div>
+
+      <!-- 完整範例 -->
+      <div class="section-block">
+        <h2><span class="section-icon">💻</span> 完整範例：個人簡介頁</h2>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn">複製</button>
+          </div>
+          <pre><code><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"zh-Hant"</span><span class="hl-tag">&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span> <span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>我的自我介紹<span class="hl-tag">&lt;/title&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-tag">&lt;h1&gt;</span>你好，我是小明 👋<span class="hl-tag">&lt;/h1&gt;</span>
+
+  <span class="hl-tag">&lt;img</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://picsum.photos/150/150"</span>
+       <span class="hl-attr">alt</span>=<span class="hl-val">"我的頭像"</span>
+       <span class="hl-attr">width</span>=<span class="hl-val">"150"</span> <span class="hl-tag">/&gt;</span>
+
+  <span class="hl-tag">&lt;h2&gt;</span>關於我<span class="hl-tag">&lt;/h2&gt;</span>
+  <span class="hl-tag">&lt;p&gt;</span>我是一個喜歡學習新事物的初學者，目前在學習網頁開發。
+  我相信用 <span class="hl-tag">&lt;strong&gt;</span>AI 輔助學習<span class="hl-tag">&lt;/strong&gt;</span> 是最有效的方式！<span class="hl-tag">&lt;/p&gt;</span>
+
+  <span class="hl-tag">&lt;h2&gt;</span>我的興趣<span class="hl-tag">&lt;/h2&gt;</span>
+  <span class="hl-tag">&lt;ul&gt;</span>
+    <span class="hl-tag">&lt;li&gt;</span>學習程式設計<span class="hl-tag">&lt;/li&gt;</span>
+    <span class="hl-tag">&lt;li&gt;</span>看電影<span class="hl-tag">&lt;/li&gt;</span>
+    <span class="hl-tag">&lt;li&gt;</span>閱讀<span class="hl-tag">&lt;/li&gt;</span>
+  <span class="hl-tag">&lt;/ul&gt;</span>
+
+  <span class="hl-tag">&lt;h2&gt;</span>聯絡我<span class="hl-tag">&lt;/h2&gt;</span>
+  <span class="hl-tag">&lt;p&gt;</span>
+    GitHub：<span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"https://github.com"</span> <span class="hl-attr">target</span>=<span class="hl-val">"_blank"</span><span class="hl-tag">&gt;</span>我的 GitHub<span class="hl-tag">&lt;/a&gt;</span>
+  <span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+<span class="hl-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+      </div>
+
+      <!-- 常見錯誤 -->
+      <div class="section-block">
+        <h2><span class="section-icon">⚠️</span> 常見錯誤</h2>
+        <div class="errors-list">
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>標籤沒有正確巢狀</h4>
+              <p><code>&lt;p&gt;&lt;strong&gt;文字&lt;/p&gt;&lt;/strong&gt;</code> 是錯的，正確應該是 <code>&lt;p&gt;&lt;strong&gt;文字&lt;/strong&gt;&lt;/p&gt;</code>。要先關閉內層的標籤。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>img 標籤忘記寫 alt</h4>
+              <p>即使圖片能顯示，也要加上有意義的 alt 文字，這對無障礙性很重要。</p>
+            </div>
+          </div>
+          <div class="error-item">
+            <span class="error-icon">✗</span>
+            <div class="error-content">
+              <h4>連結網址忘記加 https://</h4>
+              <p>外部連結必須加完整的 <code>https://</code>，否則瀏覽器會把它當成相對路徑，找不到正確位置。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 小練習 -->
+      <div class="section-block">
+        <h2><span class="section-icon">✏️</span> 小練習</h2>
+        <div class="exercises">
+          <h3>🎯 動手試試看</h3>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 1</div>
+            <p>用上方的「完整範例」，把名字、介紹文字和興趣改成你自己的，存檔後在瀏覽器查看結果。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 2</div>
+            <p>在你的頁面加入一個「我的學習目標」區塊，用 <code>&lt;ol&gt;</code>（有序清單）列出你這個月的 3 個學習目標。</p>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">練習 3</div>
+            <p>把 <code>&lt;img src="https://picsum.photos/150/150"&gt;</code> 的數字改成 <code>200/200</code>，看看圖片會有什麼變化。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon">🎉</span>
+        <div class="callout-body">
+          <h4>本章完成！</h4>
+          <p>你已經學會了最常用的 HTML 標籤。下一章我們要用 CSS 讓這個網頁變得美觀！</p>
+        </div>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="chapter3.html" class="nav-btn prev">
+          <span class="nav-btn-label">上一章</span>
+          <span class="nav-btn-title">← 第一個網頁 Hello World</span>
+        </a>
+        <a href="chapter5.html" class="nav-btn next">
+          <span class="nav-btn-label">下一章</span>
+          <span class="nav-btn-title">CSS 基本排版 →</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Vibe Coding 入門：HTML / CSS / JavaScript 網頁書</p>
+    <p style="margin-top: 0.4rem;"><a href="../index.html">← 回首頁</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
